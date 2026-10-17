@@ -1,0 +1,6 @@
+import { lazy, Suspense } from 'react'
+import { useBlocker } from 'react-router'
+import { useClub } from '../app/context'
+import { Button } from '../components/shared'
+const Dialog=lazy(()=>import('../components/ui/dialog').then(m=>({default:m.Dialog})))
+export function UnsavedNavigation({dirty}:{dirty:boolean}){const {tx}=useClub();const blocker=useBlocker(({currentLocation,nextLocation})=>dirty&&currentLocation.pathname!==nextLocation.pathname);if(blocker.state!=='blocked')return null;return <Suspense fallback={<p role="status">{tx('Есть несохранённые изменения','Сақталмаған өзгерістер бар')}</p>}><Dialog open closeLabel={tx('Закрыть','Жабу')} title={tx('Сохранить свой вклад','Өз үлесіңді сақтау')} description={tx('В редакторе есть несохранённые изменения. Продолжить редактирование или перейти без сохранения?','Редакторда сақталмаған өзгерістер бар. Өңдеуді жалғастыру керек пе, әлде сақтамай өту керек пе?')} onOpenChange={open=>{if(!open)blocker.reset()}}><div className="action-bar"><Button onClick={()=>blocker.reset()}>{tx('Продолжить редактирование','Өңдеуді жалғастыру')}</Button><Button variant="secondary" onClick={()=>blocker.proceed()}>{tx('Перейти без сохранения','Сақтамай өту')}</Button></div></Dialog></Suspense>}

@@ -1,0 +1,346 @@
+.application-v2 {
+  max-width: 1420px;
+  margin-inline: auto;
+}
+.application-workspace {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.65fr);
+  gap: 28px;
+  align-items: start;
+}
+.application-outline {
+  position: sticky;
+  top: 26px;
+  min-width: 0;
+}
+.application-manifesto {
+  background: var(--purple, #3c0b50);
+  color: #f5f0e8;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+}
+.application-manifesto h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.1;
+  color: #f2d62a;
+  max-width: 270px;
+  margin: 20px 0;
+}
+.application-manifesto p {
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 290px;
+}
+.application-manifesto .eyebrow {
+  font-size: 9px;
+  color: #d2b5db;
+}
+.application-brand-arrow {
+  display: block;
+  font-size: 68px;
+  font-weight: 800;
+  line-height: 0.7;
+  color: #f2d62a;
+  text-align: right;
+  margin-top: 24px;
+  letter-spacing: -8px;
+}
+.application-step-nav {
+  margin-top: 20px;
+  display: grid;
+}
+.application-step-nav button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 17px 14px;
+  border: 0;
+  border-bottom: 1px solid #d9cddd;
+  background: transparent;
+  text-align: left;
+  color: #190823;
+  cursor: pointer;
+  transition: background 180ms ease;
+}
+.application-step-nav button.current {
+  background: #f2d62a;
+}
+.application-step-nav button:hover {
+  background: #ebe1ed;
+}
+.application-step-nav button.current:hover {
+  background: #f2d62a;
+}
+.application-step-nav button > span:last-child {
+  margin-left: auto;
+}
+.application-step-number {
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  color: #70427a;
+}
+.application-step-nav strong {
+  display: block;
+  font-size: 14px;
+}
+.application-step-nav small {
+  display: block;
+  margin-top: 3px;
+  color: #705a77;
+  font-size: 11px;
+}
+.application-after {
+  margin-top: 30px;
+  padding-inline: 4px;
+}
+.application-after p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #705a77;
+}
+.application-after .button {
+  padding-left: 0;
+  font-size: 11px;
+}
+.application-form-sheet {
+  min-width: 0;
+  padding: clamp(20px, 3vw, 36px);
+}
+.application-demo {
+  border-left: 3px solid #f2d62a;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-block: 16px 28px;
+}
+.application-stage-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-block: 30px 24px;
+}
+.application-stage-head h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.1;
+  margin: 8px 0 0;
+}
+.application-stage-head h2:focus {
+  outline: none;
+}
+.application-question-count {
+  flex-shrink: 0;
+  font:
+    10px 'IBM Plex Mono',
+    monospace;
+  padding: 8px 10px;
+  background: #ebe1ed;
+  color: #5c2b6c;
+}
+.application-fields {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.application-fields .field > label {
+  font-size: 12px;
+}
+.application-fields .form-grid {
+  gap: 20px;
+}
+.application-fields textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.application-count {
+  text-align: right;
+  font:
+    9px 'IBM Plex Mono',
+    monospace;
+  color: #80678a;
+}
+.application-choices {
+  border: 0;
+  padding: 0;
+  margin: 4px 0;
+  min-width: 0;
+}
+.application-choices legend {
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.application-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.application-choice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  min-height: 48px;
+  border: 1px solid #dfd3e3;
+  background: #fcfaf6;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.5;
+  transition:
+    border-color 180ms,
+    background 180ms;
+}
+.application-choice.selected {
+  border-color: #3c0b50;
+  background: #eee3f1;
+}
+.application-choice:has(input:disabled) {
+  opacity: 0.5;
+  cursor: default;
+}
+.application-choice:has(input:focus-visible) {
+  outline: 2px solid #3c0b50;
+  outline-offset: 2px;
+}
+.application-choice input {
+  width: 16px;
+  height: 16px;
+  accent-color: #3c0b50;
+  flex: 0 0 16px;
+}
+.application-choice-check {
+  margin-left: auto;
+  font:
+    16px 'IBM Plex Mono',
+    monospace;
+  color: #5b2c6a;
+}
+.application-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #dfd3e3;
+  margin-top: 30px;
+  padding-top: 22px;
+}
+.application-actions .row {
+  flex-wrap: wrap;
+}
+.application-save-note {
+  margin-top: 14px;
+  min-height: 18px;
+}
+.application-source {
+  display: inline-block;
+  margin-top: 25px;
+  font-size: 11px;
+}
+.application-summary dl {
+  margin: 0;
+}
+.application-summary-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.75fr) minmax(0, 1.2fr);
+  gap: 18px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e6dce8;
+}
+.application-summary dt {
+  color: #705a77;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.application-summary dd {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.application-summary-files {
+  margin-top: 24px;
+}
+.application-summary-files h3 {
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+@media (max-width: 850px) {
+  .application-workspace {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .application-outline {
+    position: static;
+  }
+  .application-manifesto {
+    padding: 22px;
+  }
+  .application-manifesto h2 {
+    max-width: none;
+    font-size: 34px;
+  }
+  .application-manifesto p {
+    max-width: 550px;
+  }
+  .application-brand-arrow {
+    position: absolute;
+    right: 24px;
+    top: 14px;
+    font-size: 45px;
+    opacity: 0.25;
+  }
+  .application-step-nav {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    margin-top: 12px;
+  }
+  .application-step-nav button {
+    padding: 12px 8px;
+    gap: 8px;
+  }
+  .application-step-nav strong {
+    font-size: 11px;
+  }
+  .application-step-nav small,
+  .application-step-nav button > span:last-child {
+    display: none;
+  }
+  .application-step-number {
+    font-size: 20px;
+  }
+  .application-after {
+    display: none;
+  }
+}
+@media (max-width: 520px) {
+  .application-step-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .application-choice-grid,
+  .application-fields .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .application-stage-head {
+    align-items: flex-start;
+  }
+  .application-summary-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+  .application-actions .row {
+    width: 100%;
+  }
+  .application-actions .row .button {
+    flex: 1;
+    font-size: 11px;
+  }
+  .application-question-count {
+    font-size: 8px;
+    padding: 6px;
+  }
+}

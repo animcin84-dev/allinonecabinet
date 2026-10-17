@@ -1,0 +1,4 @@
+const parts=(at:string)=>new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Almaty',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date(at))
+export function almatyInput(at:string){const p=parts(at),get=(type:string)=>p.find(x=>x.type===type)?.value??'';return `${get('year')}-${get('month')}-${get('day')}T${get('hour')}:${get('minute')}`}
+/** Resolve wall-clock input with the installed IANA timezone data, including historical offsets. */
+export function toAlmatyInstant(input:string){if(!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(input))throw new Error('invalidDate');const desired=Date.parse(`${input}:00Z`);if(!Number.isFinite(desired))throw new Error('invalidDate');let guess=desired;for(let i=0;i<3;i++){const wall=almatyInput(new Date(guess).toISOString());guess+=desired-Date.parse(`${wall}:00Z`)}const at=new Date(guess).toISOString();if(almatyInput(at)!==input)throw new Error('invalidDate');return at}
